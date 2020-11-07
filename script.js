@@ -70,6 +70,14 @@ let index = 0,
                     pipes = [...pipes.slice(1), [pipes[pipes.length-1][0]+ pipeGap + pipeWidth, pipeLoc()]];
                     console.log(pipes);
                 }
+                if([
+                    pipe[0] <= cTenth + size[0],
+                    pipe[0] + pipeWidth >= cTenth,
+                    pipe[1] > flyHeight || pipe[1] +pipeGap < flyHeight + size[1]
+                ].every( elem => elem)){
+                    gamePlaying = false;
+                    setup();
+                }
             })
         }
         document.getElementById('bestscore').innerHTML = `meilleur : ${bestScore}`;
