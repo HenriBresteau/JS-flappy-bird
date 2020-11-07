@@ -27,6 +27,9 @@ let index = 0,
         currentScore=0;
         flight= jump;
         flyHeight= (canvas.height /2) - (size[1]/2);
+
+        pipes = Array(3).fill().map((a,i)=> [canvas.width + (i * (pipeGap +pipeWidth)), pipeLoc()])
+        console.log(pipes);
     }
 
     const render = () =>{
