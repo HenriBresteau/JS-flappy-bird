@@ -72,6 +72,8 @@ let index = 0,
                 }
             })
         }
+        document.getElementById('bestscore').innerHTML = `meilleur : ${bestScore}`;
+        document.getElementById('current-Score').innerHTML = `Actuel : ${currentScore}`;
         window.requestAnimationFrame(render);
 }
 setup();
