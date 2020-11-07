@@ -12,12 +12,22 @@ const size = [51,36];
 const jump = -11.5;
 const cTenth = (canvas.width /10);
 
+const pipeWidth=78;
+const pipeGap = 270;
+const pipeLoc = () => (Math.random() *  ((canvas.height - (pipeGap +pipeWidth)) - pipeWidth)) + pipeWidth;
+
 let index = 0,
     bestScore = 0,
     currentScore = 0,
     pipes =[],
     flight,
     flyHeight;
+
+    const setup = () =>{
+        currentScore=0;
+        flight= jump;
+        flyHeight= (canvas.height /2) - (size[1]/2);
+    }
 
     const render = () =>{
         index++
@@ -41,6 +51,7 @@ let index = 0,
         }
         window.requestAnimationFrame(render);
 }
+setup();
 img.onload = render;
 
 document.addEventListener('click', () => gamePlaying = true);
