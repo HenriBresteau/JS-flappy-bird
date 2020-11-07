@@ -52,6 +52,17 @@ let index = 0,
         ctx.fillText(`Cliquez pour jouer`,48,535);
         ctx.font = "bold 30px courier";
         }
+
+        // PIPE DISPLAY
+        if (gamePlaying) {
+            pipes.map(pipe => {
+                pipe[0] -= speed;
+                // TOP PIPE
+                ctx.drawImage(img, 432, 588 -pipe[1], pipeWidth, pipe[1], pipe[0], 0, pipeWidth, pipe[1]);
+                // BOTTOM PIPE 
+                ctx.drawImage(img, 432 +pipeWidth,108 , pipeWidth, canvas.height- pipe[1] +pipeGap, pipe[0], pipe[1]+pipeGap, pipeWidth,canvas.height-pipe[1]+pipeGap);
+            })
+        }
         window.requestAnimationFrame(render);
 }
 setup();
